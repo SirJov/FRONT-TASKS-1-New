@@ -3,9 +3,16 @@ import React, { useState } from "react";
 
 import "./Header.css";
 
-export default function Header({}) {
-  const [text, setText] = useState(null);
-  const [tarefas, setTarefas] = useState([]);
+export default function Header(props) {
+  const [text, setText] = useState();
+
+  function criaTarefa(ev) {
+    setText({
+      value_task: "",
+      state_task: "PENDENTE",
+    });
+    props.setTarefas([...props.tarefas, text]);
+  }
 
   return (
     <section className="boxMain">
@@ -13,19 +20,22 @@ export default function Header({}) {
         <p>Tarefa</p>
         <textarea
           className="novaTarefa"
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e) =>
+            setText({ value_task: e.target.value, state_task: "PENDENTE" })
+          }
         ></textarea>
         <button
           className="btnPost"
           type="button"
-          onClick={() => setTarefas([...tarefas, text])}
+          onClick={() => criaTarefa(text)}
         >
           ▶
         </button>
       </form>
       <div>
-        <p>{text}</p>
-        <button type="button" onClick={() => console.log(tarefas)}></button>
+        <button type="button" onClick={() => console.log(props.tarefas)}>
+          O
+        </button>
       </div>
     </section>
   );

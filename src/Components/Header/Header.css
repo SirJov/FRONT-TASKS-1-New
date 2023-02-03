@@ -1,11 +1,10 @@
 .boxMain {
   height: 85px;
   margin-top: 10px;
-  background: rgb(255, 169, 169);
 }
 .boxMain form {
   padding: 10px;
-  background: rgb(182, 253, 254);
+
   display: flex;
   align-items: center;
   max-width: 300px;
@@ -23,16 +22,17 @@
 }
 
 .boxMain button {
-  background: rgb(2, 249, 2);
   border: none;
   height: 39px;
   width: 39px;
 }
-
+button {
+  background: rgb(109, 101, 255);
+}
 button:hover {
   cursor: pointer;
+  background: rgb(154, 176, 255);
 }
 .boxMain div {
-  background: rgb(255, 34, 34);
   text-align: center;
 }

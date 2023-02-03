@@ -1,11 +1,12 @@
+import React, { useState } from "react";
 import Header from "./Components/Header/Header.js";
 
 function App() {
-  
+  const [tarefas, setTarefas] = useState([]);
+
   return (
     <div className="App">
-      <Header/>
-      
+      <Header tarefas={tarefas} setTarefas={setTarefas} />
     </div>
   );
 }
