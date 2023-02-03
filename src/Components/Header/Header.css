@@ -1,0 +1,38 @@
+.boxMain {
+  height: 85px;
+  margin-top: 10px;
+  background: rgb(255, 169, 169);
+}
+.boxMain form {
+  padding: 10px;
+  background: rgb(182, 253, 254);
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.boxMain p {
+  font-weight: bolder;
+}
+
+.boxMain textarea {
+  margin-left: 20px;
+  height: 35px;
+  border: none;
+}
+
+.boxMain button {
+  background: rgb(2, 249, 2);
+  border: none;
+  height: 39px;
+  width: 39px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+.boxMain div {
+  background: rgb(255, 34, 34);
+  text-align: center;
+}
