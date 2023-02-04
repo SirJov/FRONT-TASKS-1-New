@@ -1,0 +1,36 @@
+.cards {
+  background-color: rgb(198, 255, 236);
+  border-radius: 10px 10px 10px 10px;
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  align-items: center;
+}
+.cards div:first-of-type {
+  text-align: center;
+  width: 260px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cards div:last-of-type {
+  height: 60px;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.cards div:last-of-type input {
+  width: 30px;
+  height: 30px;
+  margin: 2px 0px;
+  border: none;
+  border-radius: 50%;
+}
+.cards div:last-of-type input:hover {
+  cursor: pointer;
+  background: rgb(230, 255, 103);
+}

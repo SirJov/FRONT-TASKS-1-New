@@ -9,20 +9,21 @@ export default function Header(props) {
   function criaTarefa(ev) {
     setText({
       value_task: "",
-      state_task: "PENDENTE",
     });
     props.setTarefas([...props.tarefas, text]);
   }
 
+  function textHandle(ev) {
+    setText({ value_task: ev.target.value, state_task: "PENDENTE" });
+  }
+
   return (
-    <section className="boxMain">
+    <div className="boxMain">
       <form>
         <p>Tarefa</p>
         <textarea
           className="novaTarefa"
-          onChange={(e) =>
-            setText({ value_task: e.target.value, state_task: "PENDENTE" })
-          }
+          onChange={(e) => textHandle(e)}
         ></textarea>
         <button
           className="btnPost"
@@ -33,10 +34,11 @@ export default function Header(props) {
         </button>
       </form>
       <div>
+        <p>asdasd</p>
         <button type="button" onClick={() => console.log(props.tarefas)}>
           O
         </button>
       </div>
-    </section>
+    </div>
   );
 }
