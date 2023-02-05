@@ -1,15 +1,12 @@
-import React, { useState } from "react";
-import Header from "./Components/Header/Header.js";
-import Main from "./Components/Main/Main.js";
+import React from "react";
+import Home from "./Pages/Home.js";
 import "./App.css";
 
 function App() {
-  const [tarefas, setTarefas] = useState([]);
-  console.log("resnderizou");
+  console.log(" resder App");
   return (
     <div className="App">
-      <Header tarefas={tarefas} setTarefas={setTarefas} />
-      <Main tarefas={tarefas} setTarefas={setTarefas} />
+      <Home />
     </div>
   );
 }

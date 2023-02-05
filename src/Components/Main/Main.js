@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Main.css";
 
 export default function Main({ tarefas, setTarefas }) {
   const listaDeTarefas = [...tarefas];
-  
+
   function deleteTask(ev, index) {
     listaDeTarefas.splice(index, 1);
     setTarefas([...listaDeTarefas]);
@@ -14,10 +14,7 @@ export default function Main({ tarefas, setTarefas }) {
       <div key={index} className="cards">
         <div>
           <h4>{iten.value_task}</h4>
-          <p>
-            {iten.state_task}
-            {index}
-          </p>
+          <p>{iten.state_task}</p>
         </div>
         <div>
           <input

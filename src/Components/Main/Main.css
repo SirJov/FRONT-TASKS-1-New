@@ -1,6 +1,6 @@
 .cards {
-  background-color: rgb(198, 255, 236);
-  border-radius: 10px 10px 10px 10px;
+  background-color: rgb(221, 255, 244);
+  border-radius: 4px 20px 20px 4px;
   display: flex;
   width: 300px;
   justify-content: space-between;
@@ -29,8 +29,9 @@
   margin: 2px 0px;
   border: none;
   border-radius: 50%;
+  background: rgb(109, 101, 255);
 }
 .cards div:last-of-type input:hover {
   cursor: pointer;
-  background: rgb(230, 255, 103);
+  background: rgb(154, 176, 255);
 }
