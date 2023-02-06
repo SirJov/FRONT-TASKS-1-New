@@ -9,12 +9,39 @@ export default function Main({ tarefas, setTarefas }) {
     setTarefas([...listaDeTarefas]);
   }
 
+  function putTask(ev, index, task) {
+    let inx = index;
+
+    listaDeTarefas.map((obj, index, task) => {
+      if (index == inx) {
+        if (obj.state_task == "PENDENTE") {
+          obj.state_task = "CONCLUIDO";
+          return setTarefas([...listaDeTarefas]);
+        }
+        if (obj.state_task == "CONCLUIDO") {
+          obj.state_task = "PENDENTE";
+          return setTarefas([...listaDeTarefas]);
+        }
+      }
+    });
+  }
+  function verificaClass(iten) {
+    if (iten.state_task == "PENDENTE") {
+      const config = { class: "btnComplit", icon: "✓" };
+      return config;
+    }
+    if (iten.state_task == "CONCLUIDO") {
+      const config = { class: "btnAlter", icon: "↺" };
+      return config;
+    }
+  }
+
   return tarefas.map((iten, index) => {
     return (
       <div key={index} className="cards">
         <div>
-          <h4>{iten.value_task}</h4>
-          <p>{iten.state_task}</p>
+          <p className="task">{iten.value_task}</p>
+          <p className="state">{iten.state_task}</p>
         </div>
         <div>
           <input
@@ -25,7 +52,14 @@ export default function Main({ tarefas, setTarefas }) {
             type="button"
             value="X"
           />
-          <input className="btnAlter" type="button" value="#" />
+          <input
+            className={verificaClass(iten).class}
+            onClick={(ev) => {
+              putTask(ev, index, iten.value_task);
+            }}
+            type="button"
+            value={verificaClass(iten).icon}
+          />
         </div>
       </div>
     );

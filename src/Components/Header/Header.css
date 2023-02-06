@@ -18,19 +18,23 @@
   height: 35px;
   border: none;
   resize: none;
+  outline: none;
+}
+.boxMain textarea:focus {
+  background-color: rgb(222, 255, 255);
 }
 
 .boxMain button {
   border: none;
-  height: 39px;
-  width: 39px;
+  height: 35px;
+  width: 35px;
 }
 button {
-  background: rgb(109, 101, 255);
+  background: rgb(181, 177, 255);
 }
 button:hover {
   cursor: pointer;
-  background: rgb(154, 176, 255);
+  background: rgb(207, 217, 255);
 }
 .boxMain div {
   text-align: center;
