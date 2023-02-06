@@ -1,41 +1,78 @@
-.boxMain {
-  margin-top: 10px;
+.boxHeader {
+  height: 110px;
 }
-.boxMain form {
-  padding: 10px;
+.title {
+  color: rgb(255, 115, 0);
+  margin: 0px auto;
+  padding: 5px;
+  text-align: center;
+  background-color: rgb(14, 14, 14);
+  width: 200px;
+  border-radius: 0px 0px 40% 40%;
+  border: 1px solid rgb(255, 77, 0);
+  box-shadow: rgb(255, 77, 0) 0px 0px 8px;
+}
+.boxHeader form {
   display: flex;
   align-items: center;
-  max-width: 300px;
-  margin: 0 auto;
+  max-width: 200px;
+  margin: 0px auto;
+  margin-top: 20px;
+  box-shadow: rgb(0, 0, 0) 0px 0px 8px;
 }
 
-.boxMain p {
+.boxHeader p {
   font-weight: bolder;
 }
 
-.boxMain textarea {
-  margin-left: 20px;
+.boxHeader textarea {
   height: 35px;
   border: none;
   resize: none;
   outline: none;
+  max-width: 165px;
 }
-.boxMain textarea:focus {
-  background-color: rgb(222, 255, 255);
+.boxHeader textarea:focus {
+  background-color: rgb(252, 234, 213);
 }
 
-.boxMain button {
+.boxHeader button {
   border: none;
   height: 35px;
   width: 35px;
+  transition: all 0.1s ease-in-out;
 }
 button {
-  background: rgb(181, 177, 255);
+  background: rgb(166, 77, 0);
 }
 button:hover {
   cursor: pointer;
-  background: rgb(207, 217, 255);
+  background: rgb(255, 115, 0);
+  font-size: 18px;
+  transition: all 0.1s ease-in-out;
 }
-.boxMain div {
+.boxHeader div {
   text-align: center;
+}
+.alert {
+  font-size: 12px;
+  margin-top: 5px;
+  color: rgb(255, 55, 55);
+  animation: loop 0.5s alternate infinite;
+}
+
+@keyframes loop {
+  0% {
+    opacity: 0.6;
+  }
+  
+  40% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
 }

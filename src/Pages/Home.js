@@ -6,9 +6,11 @@ export default function Home() {
   const [tarefas, setTarefas] = useState([]);
 
   return (
-    <>
+    <div className="boxHome">
       <Header tarefas={tarefas} setTarefas={setTarefas} />
-      <Main tarefas={tarefas} setTarefas={setTarefas} />
-    </>
+      <div className="boxCards">
+        <Main tarefas={tarefas} setTarefas={setTarefas} />
+      </div>
+    </div>
   );
 }

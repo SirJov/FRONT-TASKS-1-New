@@ -11,9 +11,20 @@ export default function Header({ tarefas, setTarefas }) {
 
   function validaVasio(data) {
     const dataString = data;
-    console.log(dataString);
+
     if (data == undefined || data == "") {
       setAlerta("Informe uma tarefa!!");
+      return 0;
+    }
+
+    const removeSpaces = data.trim();
+
+    if (removeSpaces == 0) {
+      setAlerta("Informe uma tarefa!!");
+      return 0;
+    }
+    if (data.length > 45) {
+      setAlerta("Maximo 45 caracteres!!");
       return 0;
     }
     const dataStryngReplace = dataString.replace(/\s/g, "");
@@ -40,9 +51,9 @@ export default function Header({ tarefas, setTarefas }) {
   }
 
   return (
-    <div className="boxMain">
+    <div className="boxHeader">
+      <p className="title">App de Tarefas</p>
       <form>
-        <p>Tarefa</p>
         <textarea
           className="novaTarefa"
           onChange={(e) => textHandle(e)}
@@ -53,7 +64,7 @@ export default function Header({ tarefas, setTarefas }) {
         </button>
       </form>
       <div>
-        <p>{alerta}</p>
+        <p className="alert">{alerta}</p>
       </div>
     </div>
   );
