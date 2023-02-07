@@ -1,10 +1,27 @@
 import React from "react";
+import axios from "axios";
 import "./Main.css";
 
 export default function Main({ tarefas, setTarefas }) {
   const listaDeTarefas = [...tarefas];
 
-  function deleteTask(ev, index) {
+  async function selectDelete(obj, id) {
+    await axios
+      .delete(`https://api-task-1.vercel.app/tasks/deletarBody?id_tasks=${id}`)
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  async function deleteTask(ev, index, id_tasks) {
+    const task = listaDeTarefas[index];
+    const id = id_tasks;
+
+    const taskValue = { value_task: task.value_task };
+
+    await selectDelete(taskValue, id);
+
     listaDeTarefas.splice(index, 1);
     setTarefas([...listaDeTarefas]);
   }
@@ -47,7 +64,7 @@ export default function Main({ tarefas, setTarefas }) {
           <input
             className="btnDelete"
             onClick={(ev) => {
-              deleteTask(ev, index);
+              deleteTask(ev, index, iten.id_tasks);
             }}
             type="button"
             value="X"
