@@ -13,10 +13,22 @@ export default function Main({ tarefas, setTarefas }) {
         console.log(error);
       });
   }
+ 
+  async function selectPut(id_tasks) {
+    const id = id_tasks;
+
+    await axios
+      .put(`https://api-task-1.vercel.app/tasks/atualizar/${id}`)
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   async function deleteTask(ev, index, id_tasks) {
     const task = listaDeTarefas[index];
     const id = id_tasks;
+    console.log(id);
 
     const taskValue = { value_task: task.value_task };
 
@@ -26,22 +38,6 @@ export default function Main({ tarefas, setTarefas }) {
     setTarefas([...listaDeTarefas]);
   }
 
-  function putTask(ev, index, task) {
-    let inx = index;
-
-    listaDeTarefas.map((obj, index, task) => {
-      if (index == inx) {
-        if (obj.state_task == "PENDENTE") {
-          obj.state_task = "CONCLUIDO";
-          return setTarefas([...listaDeTarefas]);
-        }
-        if (obj.state_task == "CONCLUIDO") {
-          obj.state_task = "PENDENTE";
-          return setTarefas([...listaDeTarefas]);
-        }
-      }
-    });
-  }
   function verificaClass(iten) {
     if (iten.state_task == "PENDENTE") {
       const config = { class: "btnComplit", icon: "✓" };
@@ -69,10 +65,11 @@ export default function Main({ tarefas, setTarefas }) {
             type="button"
             value="X"
           />
+          
           <input
             className={verificaClass(iten).class}
             onClick={(ev) => {
-              putTask(ev, index, iten.value_task);
+              selectPut(iten.id_tasks);
             }}
             type="button"
             value={verificaClass(iten).icon}
