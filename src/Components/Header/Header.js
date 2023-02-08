@@ -5,14 +5,15 @@ import axios from "axios";
 import "./Header.css";
 
 export default function Header({ tarefas, setTarefas }) {
-  const [data, setData] = useState();
+  const [task, setTask] = useState();
   const [alerta, setAlerta] = useState();
   const [dataAtt, setDataAtt] = useState();
+  console.log(task);
   const listaDeTarefas = [...tarefas];
-  const ValidaRepeticao = listaDeTarefas.find((i) => i.value_task == data);
+  const ValidaRepeticao = listaDeTarefas.find((i) => i.value_task == task);
 
   async function postData() {
-    const dataEdit = { value_task: data };
+    const dataEdit = { value_task: task };
     await axios
       .post("https://api-task-1.vercel.app/tasks/criar", dataEdit)
       .then((response) => {
@@ -49,10 +50,10 @@ export default function Header({ tarefas, setTarefas }) {
   }
 
   async function criaTarefa(ev) {
-    if (validaVasio(data) != 0) {
+    if (validaVasio(task) != 0) {
       const tarefaData = {
         id_tasks: dataAtt,
-        value_task: data,
+        value_task: task,
         state_task: "PENDENTE",
       };
 
@@ -61,7 +62,7 @@ export default function Header({ tarefas, setTarefas }) {
         return;
       } else {
         await postData();
-        setData("");
+        setTask("");
         setAlerta("");
         return setTarefas([...tarefas, tarefaData]);
       }
@@ -69,7 +70,7 @@ export default function Header({ tarefas, setTarefas }) {
   }
 
   function textHandle(ev) {
-    setData(ev.target.value);
+    setTask(ev.target.value);
   }
 
   return (
@@ -79,7 +80,7 @@ export default function Header({ tarefas, setTarefas }) {
         <textarea
           className="novaTarefa"
           onChange={(e) => textHandle(e)}
-          value={data}
+          value={task}
         ></textarea>
         <button className="btnPost" type="button" onClick={() => criaTarefa()}>
           ▶
