@@ -20,9 +20,10 @@
 
 
   <br>
-  <p align="center"> Projeto bem simples hospedado na Vercel, criado apenas para cosumir uma Api de tarefas.  Futuramente sera subistituido por um Front feito em React
+  <p align="center"> Primeiro projeto feito em React hospedado na Vercel, criado para cosumir uma Api de tarefas. Ainda estou aprendendo sobre React entao o codigo nao 
+  é o mais bonito. Estarei refatorando comforme vou adquirindo conhecimento sobre React.
   </p>
 
 <br>
 
-<p align="center">link do FRONT na vercel >>>>> https://front-task-1.vercel.app/</p>
+<p align="center">link do FRONT na vercel >>>>> </p>
