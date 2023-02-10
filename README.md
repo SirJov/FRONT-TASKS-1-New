@@ -26,4 +26,4 @@
 
 <br>
 
-<p align="center">link do FRONT na vercel >>>>> </p>
+<p align="center">link do FRONT na vercel >>>>> https://front-tasks-1-new.vercel.app/ </p>
