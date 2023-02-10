@@ -5,7 +5,6 @@ import Main from "../Components/Main/Main";
 
 export default function Home({ data }) {
   const [tarefas, setTarefas] = useState([]);
-
   useEffect(() => {
     axios
       .get("https://api-task-1.vercel.app/tasks/listar")

@@ -8,7 +8,6 @@ export default function Header({ tarefas, setTarefas }) {
   const [task, setTask] = useState();
   const [alerta, setAlerta] = useState();
   const [dataAtt, setDataAtt] = useState();
-  console.log(task);
   const listaDeTarefas = [...tarefas];
   const ValidaRepeticao = listaDeTarefas.find((i) => i.value_task == task);
 
