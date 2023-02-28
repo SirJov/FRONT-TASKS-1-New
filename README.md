@@ -21,7 +21,7 @@
 
   <br>
   <p align="center"> Primeiro projeto feito em React hospedado na Vercel, criado para cosumir uma Api de tarefas. Ainda estou aprendendo sobre React entao o codigo nao 
-  é o mais bonito. Estarei refatorando comforme vou adquirindo conhecimento sobre React.
+  é o mais bonito. Estarei refatorando conforme vou adquirindo conhecimento sobre React.
   </p>
 
 <br>
