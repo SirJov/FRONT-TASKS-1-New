@@ -7,7 +7,7 @@ export default function Home({ data }) {
   const [tarefas, setTarefas] = useState([]);
   useEffect(() => {
     axios
-      .get("https://api-task-1.vercel.app/tasks/listar")
+      .get("https://api-tasks-1.vercel.app/tasks/listar")
       .then((response) => {
         const dataGet = response.data;
         setTarefas(dataGet);
