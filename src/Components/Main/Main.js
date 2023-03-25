@@ -7,7 +7,7 @@ export default function Main({ tarefas, setTarefas }) {
 
   async function selectDelete(obj, id) {
     await axios
-      .delete(`https://api-task-1.vercel.app/tasks/deletarBody?id_tasks=${id}`)
+      .delete(`https://api-tasks-1.vercel.app/tasks/deletarBody?id_tasks=${id}`)
       .then(() => {})
       .catch((error) => {
         console.log(error);
@@ -16,7 +16,7 @@ export default function Main({ tarefas, setTarefas }) {
 
   async function selectPut(index, id_tasks) {
     await axios
-      .put(`https://api-task-1.vercel.app/tasks/atualizar/${id_tasks}`)
+      .put(`https://api-tasks-1.vercel.app/tasks/atualizar/${id_tasks}`)
       .then((response) => {
         const newValue = response.data[1];
         const { state_task } = newValue;

@@ -14,7 +14,7 @@ export default function Header({ tarefas, setTarefas }) {
   async function postData() {
     const dataEdit = { value_task: task };
     await axios
-      .post("https://api-task-1.vercel.app/tasks/criar", dataEdit)
+      .post("https://api-tasks-1.vercel.app/tasks/criar", dataEdit)
       .then((response) => {
         const { id_tasks } = response.data[1];
         setDataAtt(id_tasks);
