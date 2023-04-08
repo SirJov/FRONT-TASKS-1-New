@@ -9,7 +9,7 @@ export default function Header({ tarefas, setTarefas }) {
   const [alerta, setAlerta] = useState();
   const [dataAtt, setDataAtt] = useState();
   const listaDeTarefas = [...tarefas];
-  const ValidaRepeticao = listaDeTarefas.find((i) => i.value_task == task);
+  const ValidaRepeticao = listaDeTarefas.find((i) => i.value_task === task);
 
   async function postData() {
     const dataEdit = { value_task: task };
@@ -18,7 +18,7 @@ export default function Header({ tarefas, setTarefas }) {
       .then((response) => {
         const { id_tasks } = response.data[1];
         setDataAtt(id_tasks);
-
+        console.log(response.data[1]);
         return id_tasks;
       })
       .catch((error) => {
@@ -29,14 +29,14 @@ export default function Header({ tarefas, setTarefas }) {
   function validaVasio(data) {
     const dataString = data;
 
-    if (data == undefined || data == "") {
+    if (data === undefined || data === "") {
       setAlerta("Informe uma tarefa!!");
       return 0;
     }
 
     const removeSpaces = data.trim();
 
-    if (removeSpaces == 0) {
+    if (removeSpaces === 0) {
       setAlerta("Informe uma tarefa!!");
       return 0;
     }
@@ -49,14 +49,15 @@ export default function Header({ tarefas, setTarefas }) {
   }
 
   async function criaTarefa(ev) {
-    if (validaVasio(task) != 0) {
+    if (validaVasio(task) !== 0) {
       const tarefaData = {
         id_tasks: dataAtt,
         value_task: task,
         state_task: "PENDENTE",
       };
+      console.log(tarefaData);
 
-      if (ValidaRepeticao != undefined) {
+      if (ValidaRepeticao !== undefined) {
         setAlerta("Tarefa ja existe!!");
         return;
       } else {

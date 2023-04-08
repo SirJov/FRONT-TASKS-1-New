@@ -15,11 +15,10 @@ export default function Main({ tarefas, setTarefas }) {
   }
 
   async function selectPut(index, id_tasks) {
+    console.log(id_tasks + "PUT");
     await axios
       .put(`https://api-tasks-1.vercel.app/tasks/atualizar/${id_tasks}`)
       .then((response) => {
-        const newValue = response.data[1];
-        const { state_task } = newValue;
         alteraState(id_tasks);
       })
 
@@ -29,13 +28,13 @@ export default function Main({ tarefas, setTarefas }) {
   }
   function alteraState(id_tasks) {
     for (var i in tarefas) {
-      if (tarefas[i].id_tasks == id_tasks) {
-        if (tarefas[i].state_task == "PENDENTE") {
+      if (tarefas[i].id_tasks === id_tasks) {
+        if (tarefas[i].state_task === "PENDENTE") {
           listaDeTarefas[i].state_task = "CONCLUIDO";
           return setTarefas(listaDeTarefas);
         }
 
-        if (tarefas[i].state_task == "CONCLUIDO") {
+        if (tarefas[i].state_task === "CONCLUIDO") {
           listaDeTarefas[i].state_task = "PENDENTE";
           return setTarefas(listaDeTarefas);
         }
@@ -54,11 +53,11 @@ export default function Main({ tarefas, setTarefas }) {
   }
 
   function verificaClass(iten) {
-    if (iten.state_task == "PENDENTE") {
+    if (iten.state_task === "PENDENTE") {
       const config = { class: "btnComplit", icon: "✓" };
       return config;
     }
-    if (iten.state_task == "CONCLUIDO") {
+    if (iten.state_task === "CONCLUIDO") {
       const config = { class: "btnAlter", icon: "↺" };
       return config;
     }
