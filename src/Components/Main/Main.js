@@ -15,7 +15,6 @@ export default function Main({ tarefas, setTarefas }) {
   }
 
   async function selectPut(index, id_tasks) {
-    console.log(id_tasks + "PUT");
     await axios
       .put(`https://api-tasks-1.vercel.app/tasks/atualizar/${id_tasks}`)
       .then((response) => {

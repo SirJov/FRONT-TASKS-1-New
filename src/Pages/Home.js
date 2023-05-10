@@ -3,8 +3,11 @@ import axios from "axios";
 import Header from "../Components/Header/Header.js";
 import Main from "../Components/Main/Main";
 
-export default function Home({ data }) {
+export default function Home() {
   const [tarefas, setTarefas] = useState([]);
+
+  useEffect(() => {}, [tarefas]);
+
   useEffect(() => {
     axios
       .get("https://api-tasks-1.vercel.app/tasks/listar")
